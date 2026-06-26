@@ -18,3 +18,9 @@ print(df.head())
 print(df.tail())
 print(df.describe())
 
+print("handling missing values")
+print(df.isnull().sum())
+
+median_age=df['Age'].median()
+df['Age']=df['Age'].fillna(median_age)
+print(median_age)
