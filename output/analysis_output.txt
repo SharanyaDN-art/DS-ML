@@ -1,0 +1,73 @@
+Understanding dataset
+Sucessfully loaded
+shape of the dataset:50,columns:5
+
+--- First 5 Rows ---
+   Customer_ID   Age         City  Spending  Visits_Per_Month
+0            1  25.0     New York     500.0                 2
+1            2  30.0  Los Angeles     700.0                 4
+2            3   NaN      Chicago     450.0                 3
+3            4  45.0      Chicago    1500.0                10
+4            5  30.0     New York       NaN                 5
+
+--- Last 5 Rows ---
+    Customer_ID   Age         City  Spending  Visits_Per_Month
+45           46  29.0     New York     620.0                 3
+46           47  53.0  Los Angeles    1700.0                10
+47           48   NaN      Houston     810.0                 4
+48           49  27.0        Miami     530.0                 2
+49           50  32.0      Chicago     740.0                 5
+
+--- Summary Statistics ---
+       Customer_ID         Age     Spending  Visits_Per_Month
+count     50.00000   45.000000    46.000000         50.000000
+mean      25.50000   38.888889  1070.652174          4.800000
+std       14.57738   19.292276  1025.246642          2.539484
+min        1.00000   22.000000   300.000000          1.000000
+25%       13.25000   29.000000   585.000000          3.000000
+50%       25.50000   33.000000   815.000000          4.500000
+75%       37.75000   44.000000  1187.500000          6.000000
+max       50.00000  120.000000  6000.000000         10.000000
+
+--- Handling Missing Values ---
+Missing values count per column:
+Customer_ID         0
+Age                 5
+City                0
+Spending            4
+Visits_Per_Month    0
+dtype: int64
+
+Rows with missing Spending values:
+    Customer_ID   Age      City  Spending  Visits_Per_Month
+4             5  30.0  New York       NaN                 5
+14           15  26.0   Chicago       NaN                 4
+28           29  29.0     Miami       NaN                 4
+39           40  31.0   Chicago       NaN                 4
+
+Filled missing Age with median_age: 33.0
+
+Missing values in Spending after cleaning Age:
+4
+Filled missing Spending with mean_spending: 1070.6521739130435
+
+Saved Spending Distribution plot to graphs/spending_distribution.png
+
+--- Correlation Matrix ---
+                  Customer_ID       Age  Spending  Visits_Per_Month
+Customer_ID          1.000000 -0.066118 -0.042168          0.148848
+Age                 -0.066118  1.000000  0.962251          0.117690
+Spending            -0.042168  0.962251  1.000000          0.029483
+Visits_Per_Month     0.148848  0.117690  0.029483          1.000000
+Plotting Correlation Heatmap
+Saved Correlation Heatmap to graphs/correlation_heatmap.png
+
+Saved Customer Age Boxplot to graphs/age_boxplot.png
+
+--- Find the Outliers in Age ---
+Found Outliers(s):
+    Customer_ID    Age      City  Spending  Visits_Per_Month
+6             7  120.0  New York    5000.0                 1
+27           28  115.0   Houston    6000.0                 1
+
+Saved cleaned dataset to /home/student/DS-ML/output/cleaned_sales_data.csv
